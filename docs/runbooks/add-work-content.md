@@ -149,7 +149,7 @@ git commit -m "content: add <title>"
 git push -u origin content/<slug>
 ```
 
-Open a pull request into `main` on GitHub. Wait for the **CI** checks to go green (lint, typecheck, unit tests, content validation, end-to-end). When merged into `main`, the site deploys automatically after CI passes on `main`.
+Open a pull request into `main` on GitHub. Wait for the **CI** checks to go green (lint, typecheck, unit tests, content validation, end-to-end). When merged into `main`, the site is deployed by Vercel.
 
 Expected: within a few minutes of the merge, the project is live under its filter.
 
@@ -163,7 +163,7 @@ Expected: within a few minutes of the merge, the project is live under its filte
 | Vimeo or YouTube shows a blank or "refused to connect" frame | Embedding is disabled for that video, or the URL is not the embed form. Fix in the platform's settings, or use the correct URL in `project.json` |
 | `git lfs ls-files` doesn't list your video | Run `git lfs install`, then `git add` the video again |
 | CI fails on the pull request | Open the failed check on GitHub and read the message. If a content check failed, you will see the same list as in step 5. If the failure is not about content, hand the link to the repo admin |
-| Site did not update after merge | Check the **Deploy** workflow ran on GitHub Actions. If it did not run or failed, escalate to the repo admin (Vercel secrets or CI failure) |
+| Site did not update after merge | Check the latest deployment in Vercel. If it did not run or failed, escalate to the repo admin |
 
 **Escalate to:** the repo admin (whoever manages GitHub settings and Vercel for this site). Give them the pull request link and the exact error text.
 
@@ -179,4 +179,4 @@ Expected: within a few minutes of the merge, the project is live under its filte
 - Field rules and allowed values: `site/lib/content-schema.mjs`
 - The prompts used in step 3: `site/templates/work/copier.yml`
 - Short version of this process: `site/content/README.md`
-- CI: `.github/workflows/ci.yml`; deploy: `.github/workflows/deploy.yml`
+- CI: `.github/workflows/ci.yml`
