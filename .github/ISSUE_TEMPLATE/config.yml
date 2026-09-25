@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Adding or updating work
+    url: https://github.com/JosephSearle/lukesearle-portfolio-website/blob/main/docs/runbooks/add-work-content.md
+    about: Adding a film or video is a content change, not an issue. Follow the runbook.

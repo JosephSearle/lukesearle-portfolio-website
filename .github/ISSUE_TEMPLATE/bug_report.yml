@@ -1,0 +1,50 @@
+name: Bug report
+description: Something on the site is broken, looks wrong, or won't build.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Just the facts of what you saw. Save guesses about why for "Possible cause" below.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps, starting from a page URL or a command.
+      placeholder: |
+        1. Open /work/low-tide
+        2. Click the second still
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What you thought would happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Where you saw it. For site issues give browser + version, OS and device (phone/desktop). For build issues give Node version and the commit or branch.
+      placeholder: |
+        Safari 18 on iOS 18, iPhone 15
+        or: Node 22, branch feat/dynamic-content
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots or logs
+      description: Optional. Paste console or build output, or drag in a screenshot.
+  - type: textarea
+    id: possible-cause
+    attributes:
+      label: Possible cause
+      description: Optional. Your theory, if you have one. It's fine to be wrong.
