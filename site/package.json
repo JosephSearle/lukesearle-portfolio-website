@@ -12,6 +12,7 @@
     "prebuild": "npm run build:index",
     "build": "next build",
     "start": "next start",
+    "pretest": "npm run build:index",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "pretypecheck": "npm run build:index",
