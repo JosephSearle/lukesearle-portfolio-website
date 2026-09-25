@@ -1,0 +1,90 @@
+# Copier template for one piece of work. Generates content/work/<slug>/project.json,
+# which must satisfy lib/content-schema.mjs (checked by `npm run validate:content`).
+# Run via `npm run new:project`.
+_subdirectory: template
+_message_after_copy: |
+  Created content/work/{{ slug }}/project.json
+
+  Now add these files to content/work/{{ slug }}/ (paths are relative to that folder):
+    - hero.jpg{% for n in range(1, stills + 1) %}
+    - stills/{{ '%02d' | format(n) }}.jpg{% endfor %}{% if video_kind == 'file' %}
+    - film.mp4 (tracked by Git LFS)
+    - poster.jpg{% endif %}
+  Any of .jpg .jpeg .png .webp .avif .svg works for images; .mp4 .webm .mov for video.
+  If you use a different file name or extension, edit project.json to match.
+
+  Then run:  npm run validate:content
+
+title:
+  type: str
+  help: Title of the work
+  validator: "{% if not title.strip() %}Title is required{% endif %}"
+
+slug:
+  type: str
+  help: URL name, lowercase with dashes (becomes /work/<slug> and the folder name)
+  default: "{{ title | lower | regex_replace('[^a-z0-9]+', '-') | trim('-') }}"
+  validator: >-
+    {% if not (slug | regex_search('^[a-z0-9]+(-[a-z0-9]+)*$')) %}
+    Use lowercase letters, digits and single dashes, e.g. paper-houses
+    {% endif %}
+
+# Keep in sync with CATEGORIES in lib/content-schema.mjs (a unit test enforces this).
+category:
+  type: str
+  help: Which filter should this appear under?
+  choices:
+    Features: feature
+    Shorts: short
+    Commercials: commercial
+    Music videos: music
+    In development: dev
+
+year:
+  type: str
+  help: Year (4 digits), e.g. 2025
+  validator: "{% if not (year | regex_search('^[0-9]{4}$')) %}Use a 4-digit year, e.g. 2025{% endif %}"
+
+runtime:
+  type: str
+  help: Runtime, e.g. "14 min", "60 sec" or "Feature"
+  validator: "{% if not runtime.strip() %}Runtime is required{% endif %}"
+
+role:
+  type: str
+  help: Your role(s), e.g. "Director" or "Writer / Director"
+  default: Director
+
+status:
+  type: str
+  help: Status, e.g. Completed, Released, Festival run, In development
+  default: "{{ 'In development' if category == 'dev' else 'Completed' }}"
+
+logline:
+  type: str
+  help: One or two sentences describing the work
+  validator: "{% if not logline.strip() %}Logline is required{% endif %}"
+
+stills:
+  type: int
+  help: How many still images will you add (besides the hero)?
+  default: 3
+  validator: "{% if stills < 0 or stills > 20 %}Choose a number from 0 to 20{% endif %}"
+
+video_kind:
+  type: str
+  help: How will the film be shown?
+  choices:
+    Local video file (added to this folder): file
+    Vimeo or YouTube embed: embed
+    No video yet: none
+  default: none
+
+video_url:
+  type: str
+  help: Embed URL, e.g. https://player.vimeo.com/video/123456789
+  when: "{{ video_kind == 'embed' }}"
+  validator: >-
+    {% if not (video_url | regex_search('^https://(player\.vimeo\.com|www\.youtube-nocookie\.com|www\.youtube\.com)/')) %}
+    Must be an https URL on player.vimeo.com, www.youtube.com or www.youtube-nocookie.com
+    {% endif %}

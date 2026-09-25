@@ -1,0 +1,23 @@
+{%- macro j(s) -%}"{{ s | replace('\\', '\\\\') | replace('"', '\\"') }}"{%- endmacro -%}
+{
+  "title": {{ j(title | trim) }},
+  "category": "{{ category }}",
+  "year": "{{ year }}",
+  "runtime": {{ j(runtime | trim) }},
+  "role": {{ j(role | trim) }},
+  "status": {{ j(status | trim) }},
+  "logline": {{ j(logline | trim) }},
+  "hero": { "src": "hero.jpg", "alt": {{ j('Hero still for ' ~ (title | trim)) }} },
+  "stills": [
+{%- for n in range(1, stills + 1) %}
+    { "src": "stills/{{ '%02d' | format(n) }}.jpg", "alt": {{ j('Still ' ~ n ~ ' from ' ~ (title | trim)) }} }{{ ',' if not loop.last }}
+{%- endfor %}
+  ],
+  "videos": [
+{%- if video_kind == 'file' %}
+    { "title": {{ j(title | trim) }}, "src": "film.mp4", "poster": "poster.jpg" }
+{%- elif video_kind == 'embed' %}
+    { "title": {{ j(title | trim) }}, "url": {{ j(video_url | trim) }} }
+{%- endif %}
+  ]
+}

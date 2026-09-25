@@ -54,6 +54,7 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      - run: pipx install copier # exercises the work template in unit tests
       - run: npm run test
 
   validate-content:
