@@ -1,4 +1,3 @@
-import { ImageSlot } from '@/components/ImageSlot';
 import { Pill } from '@/components/Pill';
 import { experience, skillsFull } from '@/lib/projects';
 
@@ -8,7 +7,9 @@ export default function BioPage() {
   return (
     <section className="mx-auto grid max-w-[1280px] gap-x-20 gap-y-14 px-[clamp(20px,4vw,48px)] py-[clamp(48px,8vw,96px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))]">
       <div className="relative self-start bg-slate-900 [aspect-ratio:4/5]">
-        <ImageSlot label="Portrait" />
+        <div className="absolute inset-0 flex items-center justify-center text-[13px] text-slate-500">
+          Portrait
+        </div>
       </div>
       <div className="flex flex-col gap-12">
         <div>

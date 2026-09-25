@@ -1,0 +1,28 @@
+{
+  "title": "Field Notes",
+  "category": "commercial",
+  "year": "2025",
+  "runtime": "60 sec",
+  "role": "Director",
+  "status": "Released",
+  "logline": "Brand film for an outdoor clothing label.",
+  "hero": {
+    "src": "hero.svg",
+    "alt": "Placeholder hero still for Field Notes"
+  },
+  "stills": [
+    {
+      "src": "stills/01.svg",
+      "alt": "Placeholder still 1 for Field Notes"
+    },
+    {
+      "src": "stills/02.svg",
+      "alt": "Placeholder still 2 for Field Notes"
+    },
+    {
+      "src": "stills/03.svg",
+      "alt": "Placeholder still 3 for Field Notes"
+    }
+  ],
+  "videos": []
+}

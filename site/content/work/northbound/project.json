@@ -1,0 +1,28 @@
+{
+  "title": "Northbound",
+  "category": "short",
+  "year": "2022",
+  "runtime": "11 min",
+  "role": "Director / Editor",
+  "status": "Completed",
+  "logline": "A hitchhiker and a driver who won’t say where she’s going.",
+  "hero": {
+    "src": "hero.svg",
+    "alt": "Placeholder hero still for Northbound"
+  },
+  "stills": [
+    {
+      "src": "stills/01.svg",
+      "alt": "Placeholder still 1 for Northbound"
+    },
+    {
+      "src": "stills/02.svg",
+      "alt": "Placeholder still 2 for Northbound"
+    },
+    {
+      "src": "stills/03.svg",
+      "alt": "Placeholder still 3 for Northbound"
+    }
+  ],
+  "videos": []
+}

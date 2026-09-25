@@ -57,7 +57,7 @@ export function Header() {
                     All work
                   </Link>
                   {categories.map((c) => {
-                    const items = sortedProjects.filter((p) => p.cat === c.key);
+                    const items = sortedProjects.filter((p) => p.category === c.key);
                     if (items.length === 0) return null;
                     return (
                       <div key={c.key} className="mt-1.5 border-t border-white/[0.06] pt-1.5">
@@ -70,8 +70,8 @@ export function Header() {
                         </Link>
                         {items.map((p) => (
                           <Link
-                            key={p.id}
-                            href={`/work/${p.id}`}
+                            key={p.slug}
+                            href={`/work/${p.slug}`}
                             onClick={close}
                             className="flex justify-between gap-4 rounded-lg px-3 py-[7px] text-sm !text-slate-200 hover:bg-white/5 hover:!text-white"
                           >

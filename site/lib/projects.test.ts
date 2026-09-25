@@ -2,20 +2,21 @@ import { describe, expect, it } from 'vitest';
 import { catLabel, filterProjects, isFilterKey, neighbours, sortedProjects } from './projects';
 
 describe('projects', () => {
-  it('sorts newest first', () => {
-    expect(sortedProjects[0].year).toBe('2027');
+  it('is sorted newest first', () => {
+    const years = sortedProjects.map((p) => p.year);
+    expect(years).toEqual([...years].sort().reverse());
   });
 
   it('filters by category and returns everything for "all"', () => {
-    expect(filterProjects('short').every((p) => p.cat === 'short')).toBe(true);
+    expect(filterProjects('short').every((p) => p.category === 'short')).toBe(true);
     expect(filterProjects('all')).toHaveLength(sortedProjects.length);
   });
 
   it('wraps prev/next around the ends', () => {
     const first = sortedProjects[0];
     const last = sortedProjects[sortedProjects.length - 1];
-    expect(neighbours(first.id).prev.id).toBe(last.id);
-    expect(neighbours(last.id).next.id).toBe(first.id);
+    expect(neighbours(first.slug).prev.slug).toBe(last.slug);
+    expect(neighbours(last.slug).next.slug).toBe(first.slug);
   });
 
   it('labels categories and validates filter keys', () => {

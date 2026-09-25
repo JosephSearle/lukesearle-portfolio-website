@@ -3,7 +3,7 @@
 import { catLabel, categories, filterProjects, isFilterKey } from '@/lib/projects';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { ImageSlot } from './ImageSlot';
+import { Still } from './Still';
 
 /** Project grid. On /work the filter comes from ?filter=; on the home page it is always "all". */
 export function WorkGrid({ full }: { full: boolean }) {
@@ -46,17 +46,17 @@ export function WorkGrid({ full }: { full: boolean }) {
       </div>
       <div className="grid gap-0.5 [grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr))]">
         {list.map((p) => (
-          <article key={p.id} className="flex flex-col bg-slate-950">
+          <article key={p.slug} className="flex flex-col bg-slate-950">
             <div className="relative aspect-video bg-slate-900">
-              <ImageSlot label={`Still — ${p.title}`} />
+              <Still media={p.hero} />
             </div>
             <Link
-              href={`/work/${p.id}`}
+              href={`/work/${p.slug}`}
               className="flex items-baseline justify-between gap-4 px-[clamp(20px,2vw,24px)] pb-[26px] pt-3.5 transition-colors duration-150 hover:!text-sky-400"
             >
               <span className="text-[15px] font-medium">{p.title}</span>
               <span className="whitespace-nowrap text-[13px] text-slate-500">
-                {catLabel(p.cat)} · {p.year}
+                {catLabel(p.category)} · {p.year}
               </span>
             </Link>
           </article>

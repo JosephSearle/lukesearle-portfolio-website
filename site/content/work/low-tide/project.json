@@ -1,0 +1,28 @@
+{
+  "title": "Low Tide",
+  "category": "dev",
+  "year": "2027",
+  "runtime": "Feature",
+  "role": "Writer / Director",
+  "status": "In development",
+  "logline": "A fisherman’s daughter returns to the coast town she left, to settle a debt nobody will name.",
+  "hero": {
+    "src": "hero.svg",
+    "alt": "Placeholder hero still for Low Tide"
+  },
+  "stills": [
+    {
+      "src": "stills/01.svg",
+      "alt": "Placeholder still 1 for Low Tide"
+    },
+    {
+      "src": "stills/02.svg",
+      "alt": "Placeholder still 2 for Low Tide"
+    },
+    {
+      "src": "stills/03.svg",
+      "alt": "Placeholder still 3 for Low Tide"
+    }
+  ],
+  "videos": []
+}
