@@ -4,11 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:index": "node scripts/build-content-index.mjs",
+    "validate:content": "node scripts/build-content-index.mjs --check",
+    "new:project": "node scripts/new-project.mjs",
+    "predev": "npm run build:index",
     "dev": "next dev",
+    "prebuild": "npm run build:index",
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "pretypecheck": "npm run build:index",
     "typecheck": "tsc --noEmit",
     "lint": "biome check .",
     "lint:ci": "biome ci .",
@@ -17,7 +23,8 @@
   "dependencies": {
     "next": "^15.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

@@ -1,0 +1,28 @@
+{
+  "title": "The Quiet Hours",
+  "category": "feature",
+  "year": "2025",
+  "runtime": "94 min",
+  "role": "Director",
+  "status": "Festival run",
+  "logline": "Over one night shift, a hospital porter and an insomniac patient build an unlikely truce.",
+  "hero": {
+    "src": "hero.svg",
+    "alt": "Placeholder hero still for The Quiet Hours"
+  },
+  "stills": [
+    {
+      "src": "stills/01.svg",
+      "alt": "Placeholder still 1 for The Quiet Hours"
+    },
+    {
+      "src": "stills/02.svg",
+      "alt": "Placeholder still 2 for The Quiet Hours"
+    },
+    {
+      "src": "stills/03.svg",
+      "alt": "Placeholder still 3 for The Quiet Hours"
+    }
+  ],
+  "videos": []
+}

@@ -1,0 +1,28 @@
+{
+  "title": "First Light",
+  "category": "commercial",
+  "year": "2023",
+  "runtime": "30 sec",
+  "role": "Director",
+  "status": "Released",
+  "logline": "Broadcast spot for a regional rail operator.",
+  "hero": {
+    "src": "hero.svg",
+    "alt": "Placeholder hero still for First Light"
+  },
+  "stills": [
+    {
+      "src": "stills/01.svg",
+      "alt": "Placeholder still 1 for First Light"
+    },
+    {
+      "src": "stills/02.svg",
+      "alt": "Placeholder still 2 for First Light"
+    },
+    {
+      "src": "stills/03.svg",
+      "alt": "Placeholder still 3 for First Light"
+    }
+  ],
+  "videos": []
+}

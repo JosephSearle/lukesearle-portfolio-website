@@ -1,0 +1,28 @@
+{
+  "title": "Paper Houses",
+  "category": "short",
+  "year": "2024",
+  "runtime": "14 min",
+  "role": "Writer / Director",
+  "status": "Completed",
+  "logline": "Two brothers dismantle their late father’s house, room by room, and argue about what stays.",
+  "hero": {
+    "src": "hero.svg",
+    "alt": "Placeholder hero still for Paper Houses"
+  },
+  "stills": [
+    {
+      "src": "stills/01.svg",
+      "alt": "Placeholder still 1 for Paper Houses"
+    },
+    {
+      "src": "stills/02.svg",
+      "alt": "Placeholder still 2 for Paper Houses"
+    },
+    {
+      "src": "stills/03.svg",
+      "alt": "Placeholder still 3 for Paper Houses"
+    }
+  ],
+  "videos": []
+}

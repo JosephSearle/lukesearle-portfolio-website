@@ -7,3 +7,4 @@ site/test-results/
 site/tsconfig.tsbuildinfo
 site/next-env.d.ts
 .DS_Store
+site/public/media/
