@@ -1,0 +1,9 @@
+site/node_modules/
+site/.next/
+site/out/
+site/generated/
+site/playwright-report/
+site/test-results/
+site/tsconfig.tsbuildinfo
+site/next-env.d.ts
+.DS_Store

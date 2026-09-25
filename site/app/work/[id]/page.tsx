@@ -1,0 +1,70 @@
+import { ImageSlot } from '@/components/ImageSlot';
+import { catLabel, neighbours, projects } from '@/lib/projects';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return projects.map((p) => ({ id: p.id }));
+}
+
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+  if (!project) notFound();
+  const { prev, next } = neighbours(project.id);
+  const facts: [string, string][] = [
+    ['Year', project.year],
+    ['Format', `${catLabel(project.cat)} · ${project.runtime}`],
+    ['Role', project.role],
+    ['Status', project.status],
+  ];
+
+  return (
+    <article>
+      <div className="relative min-h-[280px] w-full bg-slate-900 [aspect-ratio:2.39/1]">
+        <ImageSlot label={`Hero still — ${project.title}`} />
+      </div>
+      <div className="mx-auto grid max-w-[1280px] gap-x-20 gap-y-10 px-[clamp(20px,4vw,48px)] py-[clamp(40px,6vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))]">
+        <div>
+          <Link
+            href={`/work?filter=${project.cat}`}
+            className="text-[13px] !text-slate-500 hover:!text-sky-400"
+          >
+            ← {catLabel(project.cat)}
+          </Link>
+          <h1 className="mb-0 mt-3.5 text-[clamp(36px,5vw,56px)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+            {project.title}
+          </h1>
+          <p className="mt-5 max-w-[560px] text-pretty text-lg leading-relaxed text-slate-300">
+            {project.logline}
+          </p>
+        </div>
+        <dl className="m-0 grid self-end gap-x-8 gap-y-3 text-sm [grid-template-columns:auto_1fr]">
+          {facts.map(([k, v]) => (
+            <div key={k} className="contents">
+              <dt className="text-slate-500">{k}</dt>
+              <dd className="m-0 text-slate-200">{v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <div className="grid gap-0.5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))]">
+        {[1, 2, 3].map((n) => (
+          <div key={n} className="relative aspect-video bg-slate-900">
+            <ImageSlot label="Still" />
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-between gap-5 border-b border-white/[0.06] px-[clamp(20px,4vw,48px)] py-8 text-sm">
+        <Link href={`/work/${prev.id}`} className="!text-slate-400 hover:!text-white">
+          ← {prev.title}
+        </Link>
+        <Link href={`/work/${next.id}`} className="text-right !text-slate-400 hover:!text-white">
+          {next.title} →
+        </Link>
+      </div>
+    </article>
+  );
+}
